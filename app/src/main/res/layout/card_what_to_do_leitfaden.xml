@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
+  ~
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  ~
+  ~ SPDX-License-Identifier: MPL-2.0
+  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<androidx.cardview.widget.CardView
+		style="@style/NextStep.Card"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/card_encounters"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:clipChildren="false"
+				android:clipToPadding="false"
+				android:foreground="?selectableItemBackground"
+				android:orientation="vertical"
+				android:paddingHorizontal="@dimen/spacing_larger">
+
+				<TextView
+					android:id="@+id/card_encounters_subtitle"
+					style="@style/NextStep.Text.SubTitle"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/spacing_medium_large"
+					android:text="@string/meldung_detail_positive_test_box_subtitle"
+					android:textColor="@color/blue_main"
+					app:layout_constraintTop_toTopOf="parent" />
+
+				<TextView
+					android:id="@+id/card_encounters_title"
+					style="@style/NextStep.Text.Title"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/spacing_tiny_small"
+					android:layout_marginBottom="@dimen/spacing_tiny_small"
+					android:text="@string/meldungen_detail_leitfaden_title"
+					app:layout_constraintTop_toBottomOf="@id/card_encounters_subtitle" />
+
+				<ImageView
+					android:id="@+id/card_encounters_image"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:src="@drawable/ill_anrufen"
+					app:layout_constraintRight_toRightOf="parent"
+					app:layout_constraintTop_toBottomOf="@id/card_encounters_title" />
+
+				<Space
+					android:id="@+id/card_encounters_space1"
+					android:layout_width="@dimen/spacing_medium"
+					android:layout_height="0dp"
+					app:layout_constraintLeft_toLeftOf="@id/card_encounters_image"
+					app:layout_constraintTop_toTopOf="@id/card_encounters_image" />
+
+				<LinearLayout
+					android:id="@+id/card_encounters_text_container"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/spacing_medium_large"
+					android:orientation="vertical"
+					app:layout_constraintBottom_toTopOf="@id/card_encounters_barrier1"
+					app:layout_constraintLeft_toLeftOf="parent"
+					app:layout_constraintRight_toLeftOf="@id/card_encounters_image"
+					app:layout_constraintTop_toTopOf="@id/card_encounters_image">
+
+					<TextView
+						android:id="@+id/card_encounters_text"
+						style="@style/NextStep.Text"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/meldungen_detail_leitfaden_text" />
+
+				</LinearLayout>
+
+				<androidx.constraintlayout.widget.Barrier
+					android:id="@+id/card_encounters_barrier1"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					app:barrierDirection="bottom"
+					app:constraint_referenced_ids="card_encounters_text_container,card_encounters_image" />
+
+				<FrameLayout
+					android:id="@+id/card_encounters_button_container"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/spacing_small"
+					android:layout_marginEnd="@dimen/spacing_medium"
+					app:layout_constraintEnd_toStartOf="@id/leitfaden_info_button"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@id/card_encounters_barrier1">
+
+					<Button
+						android:id="@+id/fill_leitfaden_now_button"
+						style="@style/NextStep.Button.Blue"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:drawableEnd="@drawable/ic_launch"
+						android:paddingHorizontal="@dimen/spacing_medium"
+						android:text="@string/meldungen_detail_open_leitfaden_button" />
+
+					<Button
+						android:id="@+id/zum_leitfaden_button"
+						style="@style/NextStep.Button.Outlined"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:drawableEnd="@drawable/ic_launch_blue"
+						android:paddingHorizontal="@dimen/spacing_medium"
+						android:text="@string/meldungen_detail_open_leitfaden_again_button"
+						android:visibility="gone" />
+
+				</FrameLayout>
+
+				<ImageButton
+					android:id="@+id/leitfaden_info_button"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:background="@drawable/ripple_button"
+					android:padding="@dimen/spacing_small"
+					android:src="@drawable/ic_info_black_outlined"
+					android:tint="@color/blue_main"
+					app:layout_constraintBottom_toBottomOf="@id/card_encounters_button_container"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="@id/card_encounters_button_container" />
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+			<include
+				android:id="@+id/report_further_information"
+				layout="@layout/view_report_details"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/spacing_larger" />
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:layout_marginTop="@dimen/spacing_large"
+				android:background="@color/grey_light" />
+
+			<TextView
+				android:id="@+id/delete_reports"
+				style="@style/NextStep.Button.Transparent"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginVertical="10dp"
+				android:gravity="center"
+				android:paddingTop="15dp"
+				android:paddingBottom="10dp"
+				android:text="@string/delete_reports_button"
+				android:textColor="@color/blue_main"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/card_encounters_image" />
+		</LinearLayout>
+
+	</androidx.cardview.widget.CardView>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:paddingTop="@dimen/spacing_very_large"
+		android:paddingBottom="@dimen/spacing_medium_large">
+
+		<Button
+			android:id="@+id/faq_button"
+			style="@style/NextStep.Button.Outlined"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="@dimen/spacing_medium"
+			android:layout_marginTop="@dimen/spacing_huger"
+			android:layout_marginRight="@dimen/spacing_medium"
+			android:drawableRight="@drawable/ic_launch_blue"
+			android:paddingStart="@dimen/padding_start_icon_button"
+			android:text="@string/faq_button_title" />
+
+	</LinearLayout>
+
+</LinearLayout>
