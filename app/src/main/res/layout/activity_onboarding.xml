@@ -15,11 +15,12 @@
 	<androidx.viewpager2.widget.ViewPager2
 		android:id="@+id/pager"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent" />
+		android:layout_height="match_parent" >
 
-	<include
-		android:id="@+id/splashboarding"
-		layout="@layout/layout_splashboarding"
-		android:visibility="visible" />
+		<include
+			android:id="@+id/splashboarding"
+			layout="@layout/layout_splashboarding"
+			android:visibility="visible" />
+	</androidx.viewpager2.widget.ViewPager2>
 
 </FrameLayout>

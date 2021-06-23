@@ -88,7 +88,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginTop="@dimen/spacing_tiny_small"
 				android:gravity="center_horizontal"
-				tools:text="Event name" />
+				tools:text="Nom Evènement" />
 
 			<TextView
 				android:id="@+id/checkin_time"
